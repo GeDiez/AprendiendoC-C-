@@ -1,0 +1,279 @@
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Informacion de vuelos</title>
+     <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 50%;
+        width: 50%;
+      }
+    </style>
+    <link rel="stylesheet" href="css/jquery.datetimepicker.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery.datetimepicker.full.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    
+    
+    <script>
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.load('current', {'packages':['table']});
+        google.charts.load("current", {packages:["corechart"]});
+    </script>
+</head>
+
+<body>
+    <div>
+        <label >ORIGEN:</label>
+        <select name="origen" id="origen">
+            <option value="ACA">ACAPULCO, GUERRERO</option>
+            <option value="AGU">AGUASCALIENTES, AGUASCALIENTES</option>
+            <option value="BJX">GUANAJUATO, GUNAJUATO</option>
+            <option value="CEN">CD. OBREGÓN, SONORA</option>
+            <option value="CJS">CD. JUÁREZ, CHIHUAHUA</option>
+            <option value="CLQ">COLIMA, COLIMA</option>
+            <option value="CME">CD. DEL CARMEN, CAMPECHE</option>
+            <option value="CPE">CAMPECHE, CAMPECHE</option>
+            <option value="CTM">CHETUMAL, QUINTANA ROO</option>
+            <option value="CUL">CULIACÁN, SINALOA</option>
+            <option value="CUN">CANCÚN, QUINTANA ROO</option>
+            <option value="CUU">CHIHUAHUA, CHIHUAHUA</option>
+            <option value="CVJ">CUERNAVACA, MORELOS</option>
+            <option value="CVM">CD. VICTORIA, TAMAULIPAS</option>
+            <option value="CZM">COZUMEL, QUINTANA ROO</option>
+            <option value="DGO">DURANGO, DURANGO</option>
+            <option value="GDL">GUADALAJARA, JALISCO</option>
+            <option value="GYM">GUAYMAS, SONORA</option>
+            <option value="HMO">MERMOSILLO, SONORA</option>
+            <option value="HUX">HUATULCO, OAXACA</option>
+            <option value="LAP">LA PAZ, B.C.S.</option>
+            <option value="LMM">LOS MOCHIS, SINALOA.</option>
+            <option value="LTO">LORETO, B.C.S.</option>
+            <option value="MAM">MATAMOROS, TAMAULIPAS</option>
+            <option value="MEX">CD. DE MÉXICO, CDMX</option>
+            <option value="MID">MÉRIDA, YUCATAN</option>
+            <option value="MLM">MORELIA, MICHOACAN</option>
+            <option value="MTY">MONTERREY, NUEVO LEÓN</option>
+            <option value="MTT">MINATITLAN, VERACRUZ</option>
+            <option value="MXL">MEXICALI, B.C.</option>
+            <option value="MZT">MAZATLÁN, SINALOA</option>
+            <option value="NLD">NUEVO LAREDO, TAMAULIPAS</option>
+            <option value="NOG">NOGALES, SONORA</option>
+            <option value="OAX">OAXACA, OAXACA</option>
+            <option value="PAZ">POZA RICA, VERACRUZ</option>
+            <option value="PBC">PUEBLA, PUEBLA</option>
+            <option value="PCA">PACHUCA, HIDALGO</option>
+            <option value="PDS">PIEDRAS NEGRAS, COAHUILA</option>
+            <option value="PQM">PALENQUE, CHIAPAS</option>
+            <option value="PVR">PUERTO VALLARTA, JALISCO</option>
+            <option value="PXM">PTO. ESCONDIDO, OAXACA</option>
+            <option value="QRO">QUERÉTARO, QUERÉTARO</option>
+            <option value="REX">REYNOSA, TAMAULIPAS</option>
+            <option value="SJD">LOS CABOS, B.C.S.</option>
+            <option value="SLP">SAN LUIS POTOSÍ, S.L.P.</option>
+            <option value="SZT">SAN CRISTÓBAL, CHIAPAS</option>
+            <option value="TAM">TAMPICO, TAMAULIPAS</option>
+            <option value="TAP">TAPACHULA, CHIAPAS</option>
+            <option value="TCN">TEHUACÁN, PUEBLA</option>
+            <option value="TGZ">TUXTLA GUTIÉRREZ, CHIAPAS</option>
+            <option value="TIJ">TIJUANA, B.C.</option>
+            <option value="TLC">TOLUCA, EDO DE MÉXICO</option>
+            <option value="TMN">TAMUÍN, S.L.P.</option>
+            <option value="TPQ">TEPIC, NAYARIT</option>
+            <option value="TRC">TORREÓN, COAHUILA</option>
+            <option value="UPN">URUAPAN, MICHOACAN</option>
+            <option value="VER">VERACRUZ, VERACRUZ</option>
+            <option value="VSA">VILLAHERMOSA, TABASCO</option>
+            <option value="ZCL">ZACATECAS, ZACATECAS</option>
+            <option value="ZIH">IXT. ZIHUATANEJO, GUERRERO</option>
+            <option value="ZLO">MANZANILLO, COLIMA</option>
+        </select>
+        <br>
+        <br>
+        <label >DESTINO:</label>
+        <select name="destino" id="destino">
+            <option value="ACA">ACAPULCO, GUERRERO</option>
+            <option value="AGU">AGUASCALIENTES, AGUASCALIENTES</option>
+            <option value="BJX">GUANAJUATO, GUNAJUATO</option>
+            <option value="CEN">CD. OBREGÓN, SONORA</option>
+            <option value="CJS">CD. JUÁREZ, CHIHUAHUA</option>
+            <option value="CLQ">COLIMA, COLIMA</option>
+            <option value="CME">CD. DEL CARMEN, CAMPECHE</option>
+            <option value="CPE">CAMPECHE, CAMPECHE</option>
+            <option value="CTM">CHETUMAL, QUINTANA ROO</option>
+            <option value="CUL">CULIACÁN, SINALOA</option>
+            <option value="CUN">CANCÚN, QUINTANA ROO</option>
+            <option value="CUU">CHIHUAHUA, CHIHUAHUA</option>
+            <option value="CVJ">CUERNAVACA, MORELOS</option>
+            <option value="CVM">CD. VICTORIA, TAMAULIPAS</option>
+            <option value="CZM">COZUMEL, QUINTANA ROO</option>
+            <option value="DGO">DURANGO, DURANGO</option>
+            <option value="GDL">GUADALAJARA, JALISCO</option>
+            <option value="GYM">GUAYMAS, SONORA</option>
+            <option value="HMO">MERMOSILLO, SONORA</option>
+            <option value="HUX">HUATULCO, OAXACA</option>
+            <option value="LAP">LA PAZ, B.C.S.</option>
+            <option value="LMM">LOS MOCHIS, SINALOA.</option>
+            <option value="LTO">LORETO, B.C.S.</option>
+            <option value="MAM">MATAMOROS, TAMAULIPAS</option>
+            <option value="MEX">CD. DE MÉXICO, CDMX</option>
+            <option value="MID">MÉRIDA, YUCATAN</option>
+            <option value="MLM">MORELIA, MICHOACAN</option>
+            <option value="MTY">MONTERREY, NUEVO LEÓN</option>
+            <option value="MTT">MINATITLAN, VERACRUZ</option>
+            <option value="MXL">MEXICALI, B.C.</option>
+            <option value="MZT">MAZATLÁN, SINALOA</option>
+            <option value="NLD">NUEVO LAREDO, TAMAULIPAS</option>
+            <option value="NOG">NOGALES, SONORA</option>
+            <option value="OAX">OAXACA, OAXACA</option>
+            <option value="PAZ">POZA RICA, VERACRUZ</option>
+            <option value="PBC">PUEBLA, PUEBLA</option>
+            <option value="PCA">PACHUCA, HIDALGO</option>
+            <option value="PDS">PIEDRAS NEGRAS, COAHUILA</option>
+            <option value="PQM">PALENQUE, CHIAPAS</option>
+            <option value="PVR">PUERTO VALLARTA, JALISCO</option>
+            <option value="PXM">PTO. ESCONDIDO, OAXACA</option>
+            <option value="QRO">QUERÉTARO, QUERÉTARO</option>
+            <option value="REX">REYNOSA, TAMAULIPAS</option>
+            <option value="SJD">LOS CABOS, B.C.S.</option>
+            <option value="SLP">SAN LUIS POTOSÍ, S.L.P.</option>
+            <option value="SZT">SAN CRISTÓBAL, CHIAPAS</option>
+            <option value="TAM">TAMPICO, TAMAULIPAS</option>
+            <option value="TAP">TAPACHULA, CHIAPAS</option>
+            <option value="TCN">TEHUACÁN, PUEBLA</option>
+            <option value="TGZ">TUXTLA GUTIÉRREZ, CHIAPAS</option>
+            <option value="TIJ">TIJUANA, B.C.</option>
+            <option value="TLC">TOLUCA, EDO DE MÉXICO</option>
+            <option value="TMN">TAMUÍN, S.L.P.</option>
+            <option value="TPQ">TEPIC, NAYARIT</option>
+            <option value="TRC">TORREÓN, COAHUILA</option>
+            <option value="UPN">URUAPAN, MICHOACAN</option>
+            <option value="VER">VERACRUZ, VERACRUZ</option>
+            <option value="VSA">VILLAHERMOSA, TABASCO</option>
+            <option value="ZCL">ZACATECAS, ZACATECAS</option>
+            <option value="ZIH">IXT. ZIHUATANEJO, GUERRERO</option>
+            <option value="ZLO">MANZANILLO, COLIMA</option>
+        </select>
+        <br>
+        <br>
+        <label>FECHA:</label>
+           <input class="form-control" type="text" name="datetimepicker" id="datetimepicker" size="30">
+        <br>
+        <br>
+        <label>ADULTO(S): </label>
+            <select name="adulto" id="adulto">
+                <option value="0">0</option>
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+        <br>
+        <br>
+        <label>NIÑO(S): </label>
+            <select name="nino" id="nino">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+        <br>
+        <br>
+        <label>ADULTOS MAYORES: </label>
+            <select name="adulto_m" id="adulto_m">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+        <br>
+        <br>
+        
+        <input type="checkbox" name="escala" id="escala" checked> Sin escalas<br><br>
+        <input type="button" id="enviar" name="enviar" value="Enviar" />
+        <button id="button2" type="button">Mostrar videos</button>
+        <button id="button3" type="button">Ocultar videos</button>
+        <br>
+        <div id="map">
+
+        </div>
+
+        <div id = "paginas_facebook">
+            
+        </div>
+
+        <div id="results">
+    
+        </div>
+    </div>
+    
+    <div id="table_div"></div>
+    <br>
+    <div id="precios_adulto" style="width: 500px; height: 500px;"></div>
+    <br>
+    <div id="precios_adulto_m" style="width: 500px; height: 500px;"></div>
+    <br>
+    <div id="precios_nino" style="width: 500px; height: 500px;"></div>
+    <br>
+    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+    <br>
+    <div id="calendar">
+        <p id="startendtime" style="display: none;">
+            <label>Hora de inicio: <input type="time" id="start"></label>
+            <label>Hora de fin: <input type="time" id="end"></label>
+        </p>
+        <p id="pdesc" style="display: none;"><label>Descripcion: <input type="text" id="desc" size=60></label></p>
+        <p id="idpusuario"></p>
+        <p><button id="authorize-button" style="display: none;">Authorize</button></p>
+        <p><button id="signout-button" style="display: none;">Sign Out</button></p> 
+        <p><button id="addToCalendar" style="display: none;">Agregar a Google Calendar</button></p>
+    </div>
+
+    <div>
+        <button id='enviarDrive' style="display: none;">Enviar a GoogleDrive</button>
+    </div>
+
+    <!--
+    <iframe id="idgadget" style="width: 100%; height: 350px; " src="http://www.igoogleportal.com/shindig/gadgets/ifr?url=https://hernandezdiazmanuelantonio.bitbucket.io/links.xml&lang=en&country=ALL" allowTransparency="true" frameborder="0" scrolling="auto"></iframe>
+    -->
+    <br>
+    <footer>
+        <p>Creado por Gerardo Gómez García</p>
+    </footer>
+    <script src="js/youtube.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src='js/vuelosPDF.js'></script>
+    <script src='js/lib/Arreglo.js'></script>
+    <script src='js/lib/jspdf.debug.js'></script>
+    <script src='js/lib/XHR.js'></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDirT6BMGZ91h_SyiYbwHOGb1CuSDhILIs">
+    </script>
+    <script src="https://apis.google.com/js/api.js"></script>
+
+    <script src="js/facebook.js"></script>
+    <!--
+    <script src="https://apis.google.com/js/api.js?onload=handleClientLoad"></script>
+    -->
+</body>
+</html>
