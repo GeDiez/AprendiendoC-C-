@@ -11,6 +11,7 @@
       }
     </style>
     <link rel="stylesheet" href="css/jquery.datetimepicker.css">
+    <link rel="stylesheet" type="text/css" href="css/hoteles.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/jquery.datetimepicker.full.min.js"></script>
@@ -214,13 +215,57 @@
         <button id="button2" type="button">Mostrar videos</button>
         <button id="button3" type="button">Ocultar videos</button>
         <br>
-        <div id="map">
+        <div id="map"></div>
+        <div>
+            <div>
+              <input type="text" id="ejemplo" placeholder="ejemplo" />
+            </div>
 
+            <div id="findhotels">
+              Find hotels in:
+            </div>
+
+            <div id="locationField">
+              <input id="autocomplete" placeholder="Enter a city" type="text" />
+            </div>
+
+            <div id="mapaHoteles"></div>
+
+            <div id="listing">
+              <table id="resultsTable">
+                <tbody id="results"></tbody>
+              </table>
+            </div>
+
+            <div style="display: none">
+              <div id="info-content">
+                <table>
+                  <tr id="iw-url-row" class="iw_table_row">
+                    <td id="iw-icon" class="iw_table_icon"></td>
+                    <td id="iw-url"></td>
+                  </tr>
+                  <tr id="iw-address-row" class="iw_table_row">
+                    <td class="iw_attribute_name">Address:</td>
+                    <td id="iw-address"></td>
+                  </tr>
+                  <tr id="iw-phone-row" class="iw_table_row">
+                    <td class="iw_attribute_name">Telephone:</td>
+                    <td id="iw-phone"></td>
+                  </tr>
+                  <tr id="iw-rating-row" class="iw_table_row">
+                    <td class="iw_attribute_name">Rating:</td>
+                    <td id="iw-rating"></td>
+                  </tr>
+                  <tr id="iw-website-row" class="iw_table_row">
+                    <td class="iw_attribute_name">Website:</td>
+                    <td id="iw-website"></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
         </div>
 
-        <div id = "paginas_facebook">
-            
-        </div>
+        <div id = "paginas_facebook"></div>
 
         <div id="results">
     
@@ -258,8 +303,8 @@
     -->
     <br>
     <footer>
-        <p>Creado por Gerardo Gómez García</p>
     </footer>
+    <script type="text/javascript" src="js/hoteles.js"></script>>
     <script src="js/youtube.js"></script>
     <script src="js/calendar.js"></script>
     <script src='js/vuelosPDF.js'></script>
@@ -267,7 +312,7 @@
     <script src='js/lib/jspdf.debug.js'></script>
     <script src='js/lib/XHR.js'></script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDirT6BMGZ91h_SyiYbwHOGb1CuSDhILIs">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDirT6BMGZ91h_SyiYbwHOGb1CuSDhILIs&libraries=places&callback=initMapaHoteles">
     </script>
     <script src="https://apis.google.com/js/api.js"></script>
 

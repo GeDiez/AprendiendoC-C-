@@ -1,149 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Place Autocomplete Hotel Search</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #mapaHoteles {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      table {
-        font-size: 12px;
-      }
-      #mapaHotele {
-        width: 440px;
-      }
-      #listing {
-        position: absolute;
-        width: 200px;
-        height: 470px;
-        overflow: auto;
-        left: 442px;
-        top: 0px;
-        cursor: pointer;
-        overflow-x: hidden;
-      }
-      #findhotels {
-        position: absolute;
-        text-align: right;
-        width: 100px;
-        font-size: 14px;
-        padding: 4px;
-        z-index: 5;
-        background-color: #fff;
-      }
-      #locationField {
-        position: absolute;
-        width: 190px;
-        height: 25px;
-        left: 108px;
-        top: 0px;
-        z-index: 5;
-        background-color: #fff;
-      }
-      #controls {
-        position: absolute;
-        left: 300px;
-        width: 140px;
-        top: 0px;
-        z-index: 5;
-        background-color: #fff;
-      }
-      #autocomplete {
-        width: 100%;
-      }
-      #country {
-        width: 100%;
-      }
-      .placeIcon {
-        width: 20px;
-        height: 34px;
-        margin: 4px;
-      }
-      .hotelIcon {
-        width: 24px;
-        height: 24px;
-      }
-      #resultsTable {
-        border-collapse: collapse;
-        width: 240px;
-      }
-      #rating {
-        font-size: 13px;
-        font-family: Arial Unicode MS;
-      }
-      .iw_table_row {
-        height: 18px;
-      }
-      .iw_attribute_name {
-        font-weight: bold;
-        text-align: right;
-      }
-      .iw_table_icon {
-        text-align: right;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div>
-      <input type="text" id="ejemplo" placeholder="ejemplo" />
-    </div>
-
-    <div id="findhotels">
-      Find hotels in:
-    </div>
-
-    <div id="locationField">
-      <input id="autocomplete" placeholder="Enter a city" type="text" />
-    </div>
-
-    <div id="map"></div>
-
-    <div id="listing">
-      <table id="resultsTable">
-        <tbody id="results"></tbody>
-      </table>
-    </div>
-
-    <div style="display: none">
-      <div id="info-content">
-        <table>
-          <tr id="iw-url-row" class="iw_table_row">
-            <td id="iw-icon" class="iw_table_icon"></td>
-            <td id="iw-url"></td>
-          </tr>
-          <tr id="iw-address-row" class="iw_table_row">
-            <td class="iw_attribute_name">Address:</td>
-            <td id="iw-address"></td>
-          </tr>
-          <tr id="iw-phone-row" class="iw_table_row">
-            <td class="iw_attribute_name">Telephone:</td>
-            <td id="iw-phone"></td>
-          </tr>
-          <tr id="iw-rating-row" class="iw_table_row">
-            <td class="iw_attribute_name">Rating:</td>
-            <td id="iw-rating"></td>
-          </tr>
-          <tr id="iw-website-row" class="iw_table_row">
-            <td class="iw_attribute_name">Website:</td>
-            <td id="iw-website"></td>
-          </tr>
-        </table>
-      </div>
-    </div>
-
-    <script>
-      // This example uses the autocomplete feature of the Google Places API.
+// This example uses the autocomplete feature of the Google Places API.
       // It allows the user to find all hotels in a given place, within a given
       // country. It then displays markers for all the hotels returned,
       // with on-click details for each hotel.
@@ -213,9 +68,8 @@
           zoom: 5
         }
       };
-
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
+      function initMapaHoteles() {
+        map = new google.maps.Map(document.getElementById('mapaHoteles'), {
           zoom: countries['mx'].zoom,
           center: countries['mx'].center,
           mapTypeControl: false,
@@ -418,9 +272,3 @@
           document.getElementById('iw-website-row').style.display = 'none';
         }
       }
-    </script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAb6gnHZtLtTp30rMum7BAtW_3N7p8UuRw&libraries=places&callback=initMap"
-        async defer></script>
-  </body>
-</html>

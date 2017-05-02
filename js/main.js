@@ -117,7 +117,6 @@ function localitation(geo){
 }
 
 function iniciarMapa(latitud,longitud) {
-	alert("entra a la cochinada");
 	var myLatlng = new google.maps.LatLng(latitud,longitud);
 	var dest = new google.maps.LatLng(19.453373,-99.050516);
 	var map = new google.maps.Map(document.getElementById('map'), {
